@@ -1,0 +1,27 @@
+<h2>Search results</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Family ID</th>
+      <th scope="col">Father's first name</th>
+      <th scope="col">Father's second name</th>
+      <th scope="col">Father's PESEL</th>
+      <th scope="col">Father's birth date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of fathers; let i=index" [routerLink]="['/readFamily',f.family.id]">
+      <th scope="row">{{f.family.id}}</th>
+      <td>{{f.firstName}}</td>
+      <td>{{f.secondName}}</td>
+      <td>{{f.pesel}}</td>
+      <td>{{f.birthDate}}</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<ul class="nav nav-pills">
+  <li class="nav-item" *ngFor="let p of pages; let i=index">
+    <a class="nav-link" href="" (click)="setPage(i,$event)" [ngClass]="{'active':i==page}">{{i}}</a>
+  </li>
+</ul>

@@ -1,0 +1,102 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-md-6 offset-md-3">
+      <h1>Create Family</h1>
+      <form (ngSubmit)="onSubmit()" [formGroup]="familyForm" novalidate class="mb-4">
+        <div formGroupName="father">
+          <h2>Father details</h2>
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter father's first name" class="form-control" formControlName="firstName" required [ngClass]="{ 'is-invalid': submitted && f.controls['firstName'].errors }">
+            <div *ngIf="submitted && f.controls['firstName'].errors" class="invalid-feedback">
+              <div *ngIf="f.controls['firstName'].errors.required">First name is required</div>
+              <div *ngIf="f.controls['firstName'].errors.maxlength">Maximum 25 characters allowed</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Second Name</label>
+            <input type="text" placeholder="Enter father's second name" class="form-control" formControlName="secondName" required [ngClass]="{ 'is-invalid': submitted && f.controls['secondName'].errors }">
+            <div *ngIf="submitted && f.controls['secondName'].errors" class="invalid-feedback">
+              <div *ngIf="f.controls['secondName'].errors.required">Second name is required</div>
+              <div *ngIf="f.controls['secondName'].errors.maxlength">Maximum 25 characters allowed</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>PESEL number</label>
+            <input type="text" placeholder="Enter father's PESEL" class="form-control" formControlName="pesel" required [ngClass]="{ 'is-invalid': submitted && f.controls['pesel'].errors }">
+            <div *ngIf="submitted && f.controls['pesel'].errors" class="invalid-feedback">
+              <div *ngIf="f.controls['pesel'].errors.required">PESEL is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Birth date</label>
+            <input type="text" placeholder="Enter father's birth date" class="form-control" formControlName="birthDate" type="text" bsDatepicker
+              required [ngClass]="{ 'is-invalid': submitted && f.controls['birthDate'].errors }">
+            <div *ngIf="submitted && f.controls['birthDate'].errors" class="invalid-feedback">
+              <div *ngIf="f.controls['birthDate'].errors.required">Birth date is required</div>
+            </div>
+          </div>
+        </div>
+        <div formArrayName="children" class="mb-4">
+          <div *ngFor="let c of familyForm.controls.children.controls; let i=index" class="panel panel-default">
+            <div [formGroupName]="i" class="mb-4">
+              <h3>Child details</h3>
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Enter child's first name" class="form-control" formControlName="firstName" required [ngClass]="{ 'is-invalid': submitted && c.controls.firstName.errors }">
+                <div *ngIf="submitted && c.controls.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="c.controls.firstName.errors.required">First name is required</div>
+                  <div *ngIf="c.controls.firstName.errors.maxlength">Maximum 25 characters allowed</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Second Name</label>
+                <input type="text" placeholder="Enter child's second name" class="form-control" formControlName="secondName" required [ngClass]="{ 'is-invalid': submitted && c.controls.secondName.errors }">
+                <div *ngIf="submitted && c.controls.secondName.errors" class="invalid-feedback">
+                  <div *ngIf="c.controls.secondName.errors.required">Second name is required</div>
+                  <div *ngIf="c.controls.secondName.errors.maxlength">Maximum 25 characters allowed</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>PESEL number</label>
+                <input type="text" placeholder="Enter child's PESEL number" class="form-control" formControlName="pesel" required [ngClass]="{ 'is-invalid': submitted && c.controls.pesel.errors }">
+                <div *ngIf="submitted && c.controls.pesel.errors" class="invalid-feedback">
+                  <div *ngIf="c.controls.pesel.errors.required">PESEL is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Birth date</label>
+                <input type="text" placeholder="Enter child's birth date" class="form-control" formControlName="birthDate" type="text" bsDatepicker
+                  required [ngClass]="{ 'is-invalid': submitted && c.controls.birthDate.errors }">
+                <div *ngIf="submitted && c.controls.birthDate.errors" class="invalid-feedback">
+                  <div *ngIf="c.controls.birthDate.errors.required">Birth date is required</div>
+                </div>
+              </div>
+              <label>Gender</label>
+              <div class="form-group">
+                <label class="radio-inline mr-4">
+                  <input type="radio" formControlName="sex" value="M"> Male
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" formControlName="sex" value="F"> Female
+                </label>
+                <div class="alert alert-danger" *ngIf="c.controls.sex.errors">You must select a gender.</div>
+              </div>
+              <div *ngIf="familyForm.controls.children.controls.length > 1">
+                <button type="button" (click)="removeChild(i)" class="btn btn-secondary btn-sm">Remove child</button>
+              </div>
+            </div>
+          </div>
+          <div class="padding-top-md">
+            <button type="button" (click)="addChild()" class="btn btn-primary btn-sm">Add child</button>
+          </div>
+        </div>
+        <div class="container">
+          <!-- <a [routerLink]="['/readFamily',family.id]"> -->
+          <button type="submit" class="btn btn-success btn-block btn-lg">Submit</button>
+          <!-- </a> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-md-6 offset-md-3">
+      <h1>Search for families</h1>
+      <form (ngSubmit)="onSubmit()" [formGroup]="searchForm" novalidate class="mb-4">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" placeholder="Enter child's first name" class="form-control" formControlName="firstName" required>
+        </div>
+        <div class="form-group">
+          <label>Second name</label>
+          <input type="text" placeholder="Enter child's second name" class="form-control" formControlName="secondName" required>
+        </div>
+        <div class="form-group">
+          <label>PESEL</label>
+          <input type="text" placeholder="Enter child's PESEL number" class="form-control" formControlName="pesel" required>
+        </div>
+        <div class="form-group">
+          <label>Birth date</label>
+          <input type="text" placeholder="Enter child's birth date" class="form-control" formControlName="birthDate" bsDatepicker required>
+        </div>
+        <!--<div class="form-group">
+            <label>Gender</label>
+            <input type="text" placeholder="Enter child's gedner" class="form-control" formControlName="sex" required>
+            </div> -->
+        <div class="form-group">
+          <label>Gender</label>
+          <select name="profile" class="form-control" formControlName="sex" ng-model="" checked>
+            <option value="">
+            </option>
+            <option value="M">
+              Male
+            </option>
+            <option value="F">
+              Female
+            </option>
+          </select>
+        </div>
+        <div class="alert alert-danger" *ngIf="!isValid()">You must select at least one filtering criterion.</div>
+        <div class="container">
+          <!-- <a [routerLink]="['/searchFamily',getQueryString()]"> -->
+          <button type="submit" [disabled]="!isValid()" class="btn btn-success btn-block btn-lg">Submit</button>
+          <!-- </a> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

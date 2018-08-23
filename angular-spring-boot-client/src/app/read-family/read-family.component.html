@@ -1,0 +1,98 @@
+<!-- 
+<p>
+  Father first name: {{father.firstName}}
+</p>
+
+<p>
+  Father second name: {{father.secondName}}
+</p>
+
+<p>
+  Father PESEL: {{father.pesel}}
+</p>
+
+<p>
+  Father birth date: {{father.birthDate}}
+</p>
+<div *ngFor="let c of children; let i=index" class="panel panel-default">
+  <p>
+    Child name: {{children[i].firstName}}
+  </p>
+
+</div> -->
+
+<!-- <table class="table table-striped table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Second name</th>
+      <th scope="col">PESEL</th>
+      <th scope="col">Birth date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{father.firstName}}</th>
+      <td>{{father.secondName}}</td>
+      <td>{{father.pesel}}</td>
+      <td>{{father.birthDate}}</td>
+    </tr>
+  </tbody>
+</table> -->
+<h1>Family ID: {{activatedRoute.snapshot.params['familyId']}}</h1>
+
+  <div class="container">
+    <div class="col-md-6 offset-md-3">
+      <table class="table table-striped">
+        <h2>Father detalis</h2>
+        <tbody>
+          <tr>
+            <th>First name</th>
+            <td>{{father.firstName}}</td>
+          </tr>
+          <tr>
+            <th>Second Name</th>
+            <td>{{father.secondName}}</td>
+          </tr>
+          <tr>
+            <th>PESEL</th>
+            <td>{{father.pesel}}</td>
+          </tr>
+          <tr>
+            <th>Birth date</th>
+            <td>{{father.birthDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<h2>Children detalis</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Child ID</th>
+      <th scope="col">First name</th>
+      <th scope="col">Second name</th>
+      <th scope="col">PESEL</th>
+      <th scope="col">Birth date</th>
+      <th scope="col">Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of children; let i=index">
+      <th scope="row">{{children[i].id}}</th>
+      <td>{{children[i].firstName}}</td>
+      <td>{{children[i].secondName}}</td>
+      <td>{{children[i].pesel}}</td>
+      <td>{{children[i].birthDate}}</td>
+      <td>{{children[i].sex}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- for asynchornous data fetching we need to use 'elvis' "?" operator
+  <p>
+  Child name: {{children[0]?.firstName}}
+</p> -->
