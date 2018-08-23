@@ -65,6 +65,7 @@ for additional debug output. Maven will download all dependencies for the projec
 #### Step 2
 Once `restfullapi` image is up, it's ready to run via docker. 
 ![enter image description here](https://lh3.googleusercontent.com/qbIJS5e23qN6N_kVRqZHTq1Bak_dtYI-lPhF-1qs__ccAmZrFKVq7QsgRi_nBJv9gnISihHbnv8)
+
 Similarly, there is a `Dockerfile` in `angular-spring-boot-client` root folder which is being picked up by `docker-compose.yml`, in which there is `mysql` image defined, even though we haven't created it before.
 > Docker is smart enough to pull appropriate [`mysql image`](https://hub.docker.com/r/mysql/mysql-server/) (only if it hasn't been found locally on out virtual machine) and build it on our behalf.
 
