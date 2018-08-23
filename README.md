@@ -17,7 +17,7 @@ Technologies used along the way:
 * [`mysql 5.6`](https://hub.docker.com/r/mysql/mysql-server/)
 * [`nginx:1.13.12`](https://docs.docker.com/samples/library/nginx/)
 * [`jdk 1.8`](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* 
+
 ### #0 Quick installation using Docker 
 * Navigate to`/spring-boot-rest-api` and execute
 ```
@@ -67,7 +67,8 @@ Once `restfullapi` image is up, it's ready to run via docker.
 ![enter image description here](https://lh3.googleusercontent.com/qbIJS5e23qN6N_kVRqZHTq1Bak_dtYI-lPhF-1qs__ccAmZrFKVq7QsgRi_nBJv9gnISihHbnv8)
 Similarly, there is a `Dockerfile` in `angular-spring-boot-client` root folder which is being picked up by `docker-compose.yml`, in which there is `mysql` image defined, even though we haven't created it before.
 > Docker is smart enough to pull appropriate [`mysql image`](https://hub.docker.com/r/mysql/mysql-server/) (only if it hasn't been found locally on out virtual machine) and build it on our behalf.
-> ![enter image description here](https://lh3.googleusercontent.com/lg8UBW35JHa7xuu5mWo2TUOhX9vVhX6V2xUoVKaa0xV6sDgAmurd8BPkJ4R_Ml3B71EFAMMfT1A)
+
+![enter image description here](https://lh3.googleusercontent.com/lg8UBW35JHa7xuu5mWo2TUOhX9vVhX6V2xUoVKaa0xV6sDgAmurd8BPkJ4R_Ml3B71EFAMMfT1A)
 
 Building container from `restfullapi` image as well as creating remaining images and building docker-containers for them (front-end + mysql db) is triggered by `docker-compose`. In order to initialize docker-compose navigate to project root folder and execute
 ```
@@ -81,7 +82,8 @@ This should perform all necessary actions to deploy our app on docker machine.
 
 **IMPORTANT!**
 >In angular `family.service.ts` file we specified URL's for the back-end REST API's to be consumed. Be aware that `localhost` host name in URL address has been replaced with default docker-machine IP, which is usually `192.168.99.100`. If your docker-machine is running under different IP address, you have to amend the URL's in `family.service.ts`. 
->![enter image description here](https://lh3.googleusercontent.com/-N0uxX5JTBJaJYoL6DOhUyIIuergX4kAb8xRR5gFoTZo4XDtSPbBeagX7qMC1HI6PREffvgP0jI)
+
+![enter image description here](https://lh3.googleusercontent.com/-N0uxX5JTBJaJYoL6DOhUyIIuergX4kAb8xRR5gFoTZo4XDtSPbBeagX7qMC1HI6PREffvgP0jI)
 
 To check what is docker-machine address type in terminal
 ```
